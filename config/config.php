@@ -1,6 +1,6 @@
 <?php
-define("DB_HOST", 'host.docker.internal');
-define("DB_USER", 'root');
-define("DB_PASS", 'phamminhbien123');
+define("DB_HOST", 'hktpc.mysql.database.azure.com');
+define("DB_USER", 'hktpc_khang');
+define("DB_PASS", 'tdc@12345');
 define("DB_NAME", 'hkt_shop');
-define("DB_PORT", '3307');
+define("DB_PORT", '3306');
