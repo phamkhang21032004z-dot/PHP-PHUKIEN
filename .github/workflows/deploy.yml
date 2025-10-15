@@ -22,6 +22,7 @@ jobs:
         run: |
           docker build \
             --build-arg NEW_RELIC_AGENT_VERSION=10.10.0.1 \
+            --build-arg IMAGE_NAME="php:8.2-fpm" \
             -t khangpham21/phpweb-phukien:latest .
           docker push khangpham21/phpweb-phukien:latest
 
