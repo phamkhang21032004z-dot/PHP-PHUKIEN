@@ -2,13 +2,14 @@ name: Build and Push Docker Image to Docker Hub
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master    
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest 
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
 
       - name: Login to Docker Hub
@@ -17,11 +18,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and Push Docker Image
         run: |
           docker build \
-            --build-arg NEW_RELIC_LICENSE_KEY="${{ secrets.NEW_RELIC_LICENSE_KEY }}" \
-            --build-arg NEW_RELIC_APP_NAME="PHUKIENweb" \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/phpweb-phukien:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/phpweb-phukien:latest
+            --build-arg NEW_RELIC_AGENT_VERSION=10.10.0.1 \
+            -t khangpham21/phpweb-phukien:latest .
+          docker push khangpham21/phpweb-phukien:latest
 
