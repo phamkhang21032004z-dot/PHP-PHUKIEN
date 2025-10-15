@@ -23,7 +23,7 @@ RUN chown -R www-data:www-data /var/www/html
 RUN echo "extension=newrelic.so" > /usr/local/etc/php/conf.d/newrelic.ini \
     && echo "newrelic.enabled=true" >> /usr/local/etc/php/conf.d/newrelic.ini \
     && echo "newrelic.distributed_tracing_enabled=true" >> /usr/local/etc/php/conf.d/newrelic.ini \
-    && echo "newrelic.appname=\"${NEW_RELIC_APP_NAME:-PHPweb_PHUKIEN}\"" >> /usr/local/etc/php/conf.d/newrelic.ini \
+    && echo "newrelic.appname=\"${NEW_RELIC_APPNAME:-PHPweb_PHUKIEN}\"" >> /usr/local/etc/php/conf.d/newrelic.ini \
     && echo "newrelic.license=\"${NEW_RELIC_LICENSE_KEY}\"" >> /usr/local/etc/php/conf.d/newrelic.ini
 
 COPY start.sh /start.sh
